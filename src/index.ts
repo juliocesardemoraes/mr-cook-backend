@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { sendMail } from "./mailer/service";
+import { AppDataSource } from "./database/data-source.js";
+import router from "./config/router.js";
 
 const app = express();
 app.use(
@@ -14,10 +15,15 @@ app.get("/", (req, res) => {
   res.status(200).send({ working: true });
 });
 
-app.get("/send-mail", (req, res) => {
-  const response = sendMail();
-  res.status(200).send({ working: true, response });
-});
+AppDataSource.initialize()
+  .then(() => {
+    console.log("Data Source has been initialized!");
+  })
+  .catch((err) => {
+    console.error("Error during Data Source initialization:", err);
+  });
+
+app.use("/api", router);
 
 app.listen(process.env.PORT ?? "3002");
 

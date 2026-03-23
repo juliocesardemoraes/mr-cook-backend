@@ -3,9 +3,13 @@
     "sourceMap": true,
     "outDir": "dist",
     "esModuleInterop": true,
-    "moduleResolution": "Node",
-    "module": "ESNext",
-    "target": "ESNext"
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "target": "ESNext",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
