@@ -1,12 +1,15 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
-@Entity("rep")
-export class Rep {
+@Entity("representacao")
+export class Representacao {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @Column({ type: "text" })
   nome: string;
+
+  @Column({ type: "text", unique: true })
+  email: string | null;
 
   @Column({ type: "text" })
   cidade: string;
@@ -28,9 +31,6 @@ export class Rep {
 
   @Column({ type: "text" })
   whatsapp: string;
-
-  @Column({ type: "text", nullable: true })
-  email: string | null;
 
   @Column({ type: "text", nullable: true })
   observacoes: string | null;

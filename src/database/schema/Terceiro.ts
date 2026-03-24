@@ -8,6 +8,9 @@ export class Terceiro {
   @Column({ type: "text" })
   nome: string;
 
+  @Column({ type: "text", unique: true })
+  email: string;
+
   @Column({ type: "text" })
   empresa: string;
 
@@ -34,9 +37,6 @@ export class Terceiro {
 
   @Column({ type: "text", nullable: true })
   whatsapp: string | null;
-
-  @Column({ type: "text", unique: true })
-  email: string;
 
   @Column({ type: "text" })
   descricao: string;
