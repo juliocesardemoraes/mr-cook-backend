@@ -11,7 +11,7 @@ export const AppDataSource = new DataSource({
   password: process.env.DB_PASS,
   database: process.env.DB_DB,
   host: process.env.DB_HOST,
-  port: 8001,
+  port: +process.env.DB_PORT,
   migrations: [],
   subscribers: [],
 });
