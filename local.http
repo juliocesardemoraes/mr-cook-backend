@@ -10,3 +10,25 @@ content-type: application/json
     "name": "sample",
     "time": "Wed, 21 Oct 2015 18:27:50 GMT"
 }
+
+###
+POST http://localhost:3001/api/auth/register HTTP/1.1
+content-type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "123456"
+}
+
+###
+POST http://localhost:3001/api/auth/login HTTP/1.1
+content-type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "123456"
+}
+
+###
+GET http://localhost:3001/api/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzc0NTIzNjM1LCJleHAiOjE3NzQ2MTAwMzV9.LUaYrhfnBaS7_l1UG8AI8FGbFE1xk_sou71rSUKjI7E

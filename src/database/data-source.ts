@@ -2,11 +2,12 @@ import { DataSource } from "typeorm";
 import { Compra } from "./schema/Compra.js";
 import { Representacao } from "./schema/Representacao.js";
 import { Terceiro } from "./schema/Terceiro.js";
+import { User } from "./schema/User.js";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
   synchronize: true,
-  entities: [Compra, Representacao, Terceiro],
+  entities: [Compra, Representacao, Terceiro, User],
   username: process.env.DB_NAME,
   password: process.env.DB_PASS,
   database: process.env.DB_DB,
