@@ -15,8 +15,15 @@ export const login = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
     const result = await AuthService.login(email, password);
-    res.json(result);
+    res.cookie("token", result.token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "lax",
+    });
+    return res.status(200).json({ message: "Login bem sucedido!" });
   } catch (err: any) {
-    res.status(401).json({ message: err.message });
+    console.log("ERROR", err);
+    return res.status(400).json({ message: "Dados inválidos" });
+    // return res.status(401).json({ message: err.message });
   }
 };
